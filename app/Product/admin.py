@@ -4,7 +4,9 @@ from .models import (Brand,Item,Category,SubCategory)
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['Product_Name','Category','Brand','Product_Price','Profile']
+    list_filter=['Category','Brand']
+
 
 admin.site.register(Brand)
 admin.site.register(Category)

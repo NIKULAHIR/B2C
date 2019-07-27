@@ -23,4 +23,5 @@ urlpatterns = [
     path('root/',include(('app.Profiles.urls','root'))),
     path('product/',include(('app.Product.urls','product'))),
     path('oredr/',include(('app.Order.urls','order'))), 
+    #path('cart/',include(('app.Order.urls','cart'))), 
 ]

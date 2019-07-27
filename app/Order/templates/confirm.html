@@ -1,0 +1,46 @@
+<html>
+    <body>
+            <center>
+            <t>Order_List</h1>
+        <hr/>
+        <table border=1 >
+            
+            <tr>
+                    <td>Confiem Order</td>
+                    
+                    
+            </tr>
+        {% for px in order %}
+            <tr>
+                   
+                   <td><button><a href="{% url 'order:Order_confirm' %}"></a>Confirm</a></button></td>
+            </tr>
+        {% endfor %}
+        {% for x in bd %}
+                    <tr>
+                           <td>{{x.Brand_Name}}</td> 
+                           
+            </tr>
+       {% endfor %}
+            
+       
+                    
+                           
+         
+    </table>
+            
+           
+    <hr/>
+</center>
+
+               
+                <a href={% url 'root:profile' %}>back to profile</a><hr/>
+                <a href={% url 'root:logout' %}>Logout Here</a><hr/>
+                <a href="{% url 'product:list' %}">Back Product List</a>
+               
+               
+
+            
+     
+    </body>
+</html>

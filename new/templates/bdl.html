@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Barnd Listt</title>
+    </head>
+    <body>
+
+            <h1>Brand List</h1>
+            
+            <table border=1 >
+                    <tr>
+                            <td>Brand_Name</td>    
+                    </tr>
+                {% for px in bd %}
+                    <tr>
+                           <td>{{px.Brand_Name}}</td> 
+                    </tr>
+                {% endfor %}   
+            </table>
+        
+
+    </body>
+</html>

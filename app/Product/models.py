@@ -1,5 +1,5 @@
 from django.db import models
-
+#from django.contrib.auth.models import User
 #from django.db import models
 
 from django.utils import timezone
@@ -7,6 +7,7 @@ from django.utils import timezone
 # Create your models here.
 
 class Item(models.Model):
+    #user            =models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")
     Profile      =models.ForeignKey(
                                     'Profiles.Profile',
                                     #.choices["SL"]'
@@ -24,6 +25,7 @@ class Item(models.Model):
                                     on_delete=models.CASCADE,
                                     related_name='product_category',
                                 )
+   
     Product_Name  =models.CharField(
                                         max_length=50
                                     )
@@ -34,7 +36,7 @@ class Item(models.Model):
                                 #     MaxValueValidator(10),
                                 # ]
                                 )
-    Product_Image =models.CharField(
+    Product_Image =models.CharField(                #-----Use-Image Field
                                         max_length=30,  
                                         default='unknown'
                                     )
@@ -52,21 +54,43 @@ class Brand(models.Model):
 class Category(models.Model):
     
     Category_Name=models.CharField(
-                                    max_length=50
+                                    max_length=50,
+                                    choices=(
+                                            ('CL','Cloth'),
+                                            ('FT','Footware'),
+                                            ('MP','Mobile Phone'),
+                                            ('Lp','Laptop'),
+                                    ),
                                 )
-    Sub_Category     =models.ForeignKey(
-                                        'Product.SubCategory',
-                                        on_delete=models.CASCADE,
-                                        related_name='Sub_Category',
-                                    )
+    
     def __str__(self,*args,**kywords):
         return self.Category_Name
     
 
 class SubCategory(models.Model):
+    Category     =models.ForeignKey(
+                                        'Product.Category',
+                                        on_delete=models.CASCADE,
+                                        related_name='Sub_Category',
+                                    )
     
     
-    SubCatName  =models.CharField(max_length=50)
+    SubCatName  =models.CharField(
+
+                                    max_length=50,
+                                    choices=(
+                                            ('MN','Men'),
+                                            ('WM','Women'),
+                                            ('CH','Child'),
+                                            ('SH','Shoes'),
+                                            ('SD','Shandal'),
+                                            ('SL','Sleeper'),
+                                            ('SM','Smart Phone'),
+                                            ('SP','Sale phone'),
+                                            ('TB','Tablate'),
+                                    ),
+                                
+    )
     
     def __str__(self,*args,**kywords):
         return self.SubCatName

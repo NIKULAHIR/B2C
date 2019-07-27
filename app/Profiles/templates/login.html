@@ -1,18 +1,24 @@
+
+<!-- 
+    {% block content %} -->
 <html>
-    <body>
-        <center>     
+    <body>     
+          <center>     
             <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <table border="0">
             {{ form }}
             </table>
             <input type="submit" value="Submit">
-        </form>
-    </center>
+            </form>
+         </center>
 
         {% if errors %}
-        <h1> {{ errors }} </h1>
+            <h1> {{ errors }} </h1>
         {% endif %}
-        <a href={% url 'root:register' %}>register Here</a>
+            <a href={% url 'root:register' %}>register Here</a>
     </body>
+ 
 </html>
+
+    <!-- {% endblock %} -->

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>subCetegory list of product</title>
+    </head>
+    <body>
+
+        <h1> sub category list of Product</h1>
+            <table border=1  >
+
+                    <tr>
+                            
+                            <td >Sub_Category</td>
+                                   
+                    </tr>
+                    {% for px in cl %}
+                    <tr>
+                            <td ><a href='{% url "product:p_list" px.id %}'>{{ px.SubCatName }}</a></td> 
+                             
+                            
+                    </tr>
+                    {% endfor %}
+                    
+            </table><hr/>
+
+                    <a href={% url 'product:brand_list' %}>Brand_Name</a>
+    </body>
+</html>

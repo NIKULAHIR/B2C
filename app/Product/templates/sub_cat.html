@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>subCetegory list of product</title>
+    </head>
+    <body>
+
+        <h1> sub category list of Product</h1>
+            <table border=1  >
+
+                    <tr>
+                            
+                            <td >Sub_Category</td>
+                                   
+                    </tr>
+                    {% for px in cl %}
+                    <tr>
+                            <td ><a href='{% url "product:p_list" px.id %}'>{{ px.SubCatName }}</a></td> 
+                             
+                            
+                    </tr>
+                    {% endfor %}
+                    
+            </table><hr/>
+            <h3><a href="{% url 'order:cartlist'  %}">CART List({{ cart_count }})</a></h3>
+            <hr/>
+
+                    <a href={% url 'product:brand_list' %}>Brand_Name</a><hr/>
+
+                    <a href={% url 'root:profile' %}>back to profile</a><hr/>
+                    <a href={% url 'root:logout' %}>Logout Here</a><hr/>
+                    
+    </body>
+</html>

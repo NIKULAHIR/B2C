@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 # Create your models here.
 
+from django.db.models.signals import post_save
+
+
 class Profile(models.Model):
     user            =models.OneToOneField(User,on_delete=models.CASCADE,related_name="Profile")
     Profile_Type    =models.CharField(
@@ -14,9 +17,6 @@ class Profile(models.Model):
                                             ('AD','Admin'),
                                         ),
     )  
-    ID              =models.IntegerField(
-        unique=True,
-    )
     Name            =models.CharField(max_length=50)
     State           =models.CharField(max_length=50)
     City            =models.CharField(max_length=50)
@@ -33,3 +33,11 @@ class Profile(models.Model):
 
     def __str__(self,*args,**keywrds):
         return self.user.username
+
+    # def Create_Profile(self, sender, *args, **keywrgs):
+    #     user    = keywrgs['instance']
+    #     if keywrgs['created']:
+    #         profile = user.models.Profile()
+    #         profile.setUser(sender)
+    #         profile.save()
+    # post_save.connect(Create_Profile, sender=User)

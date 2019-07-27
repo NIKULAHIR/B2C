@@ -1,0 +1,61 @@
+<html>
+    <body>
+            <center>
+            <h1 >Product_List</h1>
+        <hr/>
+        <table border=1 >
+            
+            <tr>
+                    <td>Product_Name</td>
+                    <td>Profile</td>
+                    <td>Brand</td>
+                    <td>Category</td>
+                    <td>Product_Price</td>
+                    <td>Product_Image</td>
+                    <td>Delete Product</td>
+                    <td>Edit Profile</td>
+                    <a href={% url 'product:cat_list' %}>Category List</a><hr/>
+                    <a href={% url 'product:brand_list' %}>Brand List</a><hr/>
+                    
+                    
+                    
+            </tr>
+        {% for px in pl %}
+            <tr>
+                   <td>{{px.Product_Name}}</td> 
+                   <td>{{px.Profile.Profile_Type}}</td> 
+                   <td>{{px.Brand}}</td> 
+                   <td>{{px.Category}}</td> 
+                   <td>{{px.Product_Price}}</td> 
+                   <td>{{px.Product_Image}}</td> 
+                   <td><a href="{% url 'product:delete' px.id %}" style="color:red">Delete</a></td>
+                   <td><a href="{% url 'product:edit_product' px.id %}" style="color:green">Edit</a></td>
+                   
+        {% endfor %}
+        {% for x in bd %}
+                    <tr>
+                           <td>{{x.Brand_Name}}</td> 
+                           
+            </tr>
+       {% endfor %}
+            
+       
+                    
+                           
+         
+    </table>
+            <p text-align='center'> <th><a href="{% url 'product:add_product' %}" style="color:blue">ADD Profile</a></th>
+            </p>
+    <hr/>
+</center>
+
+                <h3><a href="{% url 'order:cartlist'  %}">CART List( )</a></h3>  
+                <a href={% url 'root:profile' %}>back to profile</a><hr/>
+                <a href={% url 'root:logout' %}>Logout Here</a><hr/>
+               
+               
+
+            
+     
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <body>
+            <center>
+            <h1 >Product_List</h1>
+        <hr/>
+        <table border=1 >
+            
+            <tr>
+                    <td>Product_Name</td>
+                    <td>Brand</td>
+                    <td>Product_Price</td>
+                    <td>Product_Image</td>
+                    <td>Category</td>
+                    <!-- <td>Buying</td> -->
+                    <td colspan="2">CART</td>
+                    
+                    
+                    
+                    
+                    
+            </tr>
+        {% for px in pl %}
+            <tr>
+                   <td>{{px.Product_Name}}</td> 
+                   <td>{{px.Brand}}</td>
+                   <td>{{px.Product_Price}}</td> 
+                   <td>{{px.Product_Image}}</td>
+                   <td>{{px.Category}}</td>
+                   <!-- <td><button>BUY</button> </td> -->
+                   <td><a href="{% url 'order:olist' px.id %}">ADD TO Cart</a></td>
+                                                        
+            </tr>
+        {% endfor %}
+        
+       
+                    
+                           
+         
+    </table>
+           
+</center>
+              
+               
+                

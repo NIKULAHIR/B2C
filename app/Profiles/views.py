@@ -80,12 +80,24 @@ class RegisterView(views.View):
             )
 class ProfileView(LoginRequiredMixin,views.View):
     login_url = "/profile/login/"
+    
 
     def get(self, request, cid = None, *args, **kwargs):
+
+        #this will ridirect tocustomerwhile Profile type is Customer
+        if request.user.Profile.Profile_Type == 'CS':
+            return redirect('product:cat_list')
+            # return HttpResponse(
+            #     #status=400,
+            #     """<h1>The user is not--> Seller,</h1>
+            #     <h3>Page Redirect to the Customer View</h3>"""
+            # )  
+
         if not cid:
             return render(
                 request,
                 'profile.html',
+                #'index.html',
                 context={
                     'form' : ProfileForm(
                         instance=request.user.Profile
@@ -97,6 +109,7 @@ class ProfileView(LoginRequiredMixin,views.View):
                 return render(
                     request,
                     'profile.html',
+                    #'index.html',
                     context={
                         'form' : ProfileForm(
                             instance=Profile.objects.get( id = cid )

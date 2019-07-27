@@ -1,0 +1,41 @@
+<html>
+    <body>
+            <center>
+            <h1 >Product_List</h1>
+        <hr/>
+        <table border=1 >
+            
+            <tr>
+                    
+                    <td>Category</td>      
+                    
+            </tr>
+        {% for px in pl %}
+            <tr>
+                   <td><a href={% url 'product:cat_list' %}> {{px.Category}} </a></td>         
+        {% endfor %}
+        {% for x in bd %}
+                    <tr>
+                           <td>{{x.Brand_Name}}</td> 
+                           
+            </tr>
+       {% endfor %}
+  
+    </table>
+
+    <!-- hbhhbhbbhh -->
+            <p text-align='center'> <th><a href="{% url 'product:add_product' %}" style="color:blue">ADD Profile</a></th>
+            </p>
+    <hr/>
+</center>
+               
+                <a href={% url 'root:profile' %}>back to profile</a><hr/>
+                <a href={% url 'root:logout' %}>Logout Here</a><hr/>
+                <a href={% url 'order:olist' %}>order list</a><hr/>
+                
+                
+
+            
+     
+    </body>
+</html>

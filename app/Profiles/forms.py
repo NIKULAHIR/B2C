@@ -26,13 +26,17 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['Birthdate','BillingAddress','ShippingAddress']
+        exclude = ['Birthdate','BillingAddress','ShippingAddress','ID']
 
-        def __init__(self, *args, **kwargs):
-            disabled_fields = ('Profile')
-            super(ProfileForm, self).__init__(*args, **kwargs)
-            for x in self.disabled_fields:
-                self.fields[x].disabled = True
+        # def __init__(self, *args, **kwargs):
+        #     super(ProfileForm, self).__init__(*args, **kwargs)
+        #     self.fields['Name'].disabled = True
+
+        # def __init__(self, *args, **kwargs):
+        #     disabled_fields = ('Profile')
+        #     super(ProfileForm, self).__init__(*args, **kwargs)
+        #     for x in self.disabled_fields:
+        #         self.fields[x].disabled = True
     #     widgets = {
     #     'user': forms.TextInput(attrs={'disabled': True}),
     # }

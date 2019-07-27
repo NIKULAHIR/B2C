@@ -1,0 +1,60 @@
+<html>
+    <body>
+            <center>
+            <h1 ><a href="{% url 'order:cartlist'  %}">CART Listt( {{ cart_count }} )</h1>
+        <hr/>
+        <table border=1 >
+            
+            <tr>
+                    <td>USER</td>
+                    <td>Product_Name</td>
+                    <td>Brand</td>
+                    <td>Product Price</td>
+                    <td>Quntity</td>
+                    <td>staus</td>
+
+                    <td>cencal</td>
+                    <td>Purches</td>
+                    
+                    
+                    
+                    
+                    
+            </tr>
+        {% for li in odl %}
+            <tr>
+                   <td>{{li.Profile.user}}</td>
+                   <td>{{li.Product.Product_Name}}</td> 
+                   <td>{{li.Product.Brand}}</td> 
+                   <td>{{li.Product.Product_Price}}</td> 
+                   <td>{{li.Order_quntity}}</td>       
+                   <td>{{li.Order_type}}</td>
+                   <td><a href="{% url 'order:reject' li.id %}">X</a></td>
+                   <td><button><a href="{% url 'order:buy' li.id %}"> Buy</a></button></td>
+                   
+
+                   
+                </tr>
+
+            {% endfor %}
+  
+                    
+                           
+         
+    </table>
+            <hr/>
+            <button><a href="{% url 'order:clear'  %}"> <h4 style="color:cornflowerblue">Claer Cart</h4></a></button>
+
+    <hr/>
+</center>
+                <a href={% url 'order:cartlist' %}>Go To Cart ( {{ cart_count }} )</a><hr/>
+                
+                <a href={% url 'root:profile' %}>back to profile</a><hr/>
+                <a href={% url 'root:logout' %}>Logout Here</a><hr/>
+                
+                
+
+            
+     
+    </body>
+</html>
